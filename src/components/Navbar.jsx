@@ -10,6 +10,13 @@ function Navbar() {
   const openMenu = () => {
     setMenu("flex");
   };
+  const navLinkClasses = ({ isActive }) =>
+    `relative text-xl font-medium text-black 
+     after:content-[''] after:absolute after:left-0 after:-bottom-1
+     after:h-0.5 after:bg-red-500 after:w-0 
+     after:transition-all after:duration-300 
+     hover:after:w-full
+     ${isActive ? "after:w-full text-black" : ""}`;
   return (
     <>
       <header className="shadow-lg sticky top-0 italic z-10">
@@ -22,68 +29,30 @@ function Navbar() {
           </div>
 
           <div
-            className={` md:flex ${
-              menu === "flex" ? "translate-x-0" : "translate-x-full"
+            className={` md:flex md:translate-x-0 md:opacity-100 ${
+              menu === "flex"
+                ? "translate-x-0 opacity-100 pointer-events-auto"
+                : "translate-x-full opacity-0 pointer-events-none"
             } md:items-center md:justify-center md:static md:h-auto md:w-auto absolute right-0 top-0 h-screen bg-white w-[50vw] transition-all duration-300 ease-in-out`}
           >
             <ul className=" md:flex md:flex-row md:gap-5 flex flex-col gap-7 md:p-0 p-10 w-full ">
               <li>
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    `relative text-xl font-medium text-black 
-     after:content-[''] after:absolute after:left-0 after:-bottom-1
-     after:h-0.5 after:bg-red-500 after:w-0 
-     after:transition-all after:duration-300 
-     hover:after:w-full
-     ${isActive ? "after:w-full text-black" : ""}`
-                  }
-                >
+                <NavLink to="/" className={navLinkClasses}>
                   Home
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/Products"
-                  className={({ isActive }) =>
-                    `relative text-xl font-medium text-black 
-     after:content-[''] after:absolute after:left-0 after:-bottom-1
-     after:h-0.5 after:bg-red-500 after:w-0 
-     after:transition-all after:duration-300 
-     hover:after:w-full
-     ${isActive ? "after:w-full text-black" : ""}`
-                  }
-                >
+                <NavLink to="/Products" className={navLinkClasses}>
                   Products
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/About"
-                  className={({ isActive }) =>
-                    `relative text-xl font-medium text-black 
-     after:content-[''] after:absolute after:left-0 after:-bottom-1
-     after:h-0.5 after:bg-red-500 after:w-0 
-     after:transition-all after:duration-300 
-     hover:after:w-full
-     ${isActive ? "after:w-full text-black" : ""}`
-                  }
-                >
+                <NavLink to="/About" className={navLinkClasses}>
                   About
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/Contact"
-                  className={({ isActive }) =>
-                    `relative text-xl font-medium text-black 
-     after:content-[''] after:absolute after:left-0 after:-bottom-1
-     after:h-0.5 after:bg-red-500 after:w-0 
-     after:transition-all after:duration-300 
-     hover:after:w-full
-     ${isActive ? "after:w-full text-black" : ""}`
-                  }
-                >
+                <NavLink to="/Contact" className={navLinkClasses}>
                   Contact
                 </NavLink>
               </li>
