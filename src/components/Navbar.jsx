@@ -42,17 +42,17 @@ function Navbar() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/Products" className={navLinkClasses}>
+                <NavLink to="/products" className={navLinkClasses}>
                   Products
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/About" className={navLinkClasses}>
+                <NavLink to="/about" className={navLinkClasses}>
                   About
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/Contact" className={navLinkClasses}>
+                <NavLink to="/contact" className={navLinkClasses}>
                   Contact
                 </NavLink>
               </li>
