@@ -22,7 +22,9 @@ function Navbar() {
           </div>
 
           <div
-            className={` md:flex ${menu} md:items-center md:justify-center md:static md:h-auto md:w-auto absolute right-0 top-0 h-screen bg-white w-[50vw]`}
+            className={` md:flex ${
+              menu === "flex" ? "translate-x-0" : "translate-x-full"
+            } md:items-center md:justify-center md:static md:h-auto md:w-auto absolute right-0 top-0 h-screen bg-white w-[50vw] transition-all duration-300 ease-in-out`}
           >
             <ul className=" md:flex md:flex-row md:gap-5 flex flex-col gap-7 md:p-0 p-10 w-full ">
               <li>
@@ -31,7 +33,7 @@ function Navbar() {
                   className={({ isActive }) =>
                     `relative text-xl font-medium text-black 
      after:content-[''] after:absolute after:left-0 after:-bottom-1
-     after:h-[2px] after:bg-red-500 after:w-0 
+     after:h-0.5 after:bg-red-500 after:w-0 
      after:transition-all after:duration-300 
      hover:after:w-full
      ${isActive ? "after:w-full text-black" : ""}`
@@ -46,7 +48,7 @@ function Navbar() {
                   className={({ isActive }) =>
                     `relative text-xl font-medium text-black 
      after:content-[''] after:absolute after:left-0 after:-bottom-1
-     after:h-[2px] after:bg-red-500 after:w-0 
+     after:h-0.5 after:bg-red-500 after:w-0 
      after:transition-all after:duration-300 
      hover:after:w-full
      ${isActive ? "after:w-full text-black" : ""}`
@@ -61,7 +63,7 @@ function Navbar() {
                   className={({ isActive }) =>
                     `relative text-xl font-medium text-black 
      after:content-[''] after:absolute after:left-0 after:-bottom-1
-     after:h-[2px] after:bg-red-500 after:w-0 
+     after:h-0.5 after:bg-red-500 after:w-0 
      after:transition-all after:duration-300 
      hover:after:w-full
      ${isActive ? "after:w-full text-black" : ""}`
@@ -76,7 +78,7 @@ function Navbar() {
                   className={({ isActive }) =>
                     `relative text-xl font-medium text-black 
      after:content-[''] after:absolute after:left-0 after:-bottom-1
-     after:h-[2px] after:bg-red-500 after:w-0 
+     after:h-0.5 after:bg-red-500 after:w-0 
      after:transition-all after:duration-300 
      hover:after:w-full
      ${isActive ? "after:w-full text-black" : ""}`
@@ -91,7 +93,7 @@ function Navbar() {
                 </NavLink>
               </li>
               <li>
-                <button className="bg-red-500 text-white md:w-[73px] md:h-[32px] rounded cursor-pointer w-full h-9 text-[18px] ">
+                <button className="bg-red-500 text-white md:w-18.25 md:h-8 rounded cursor-pointer w-full h-9 text-[18px] ">
                   Sign in
                 </button>
               </li>
