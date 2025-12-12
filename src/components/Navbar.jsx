@@ -10,10 +10,11 @@ function Navbar() {
   const openMenu = () => {
     setMenu("flex");
   };
+
   const navLinkClasses = ({ isActive }) =>
     `relative text-xl font-medium text-black 
      after:content-[''] after:absolute after:left-0 after:-bottom-1
-     after:h-0.5 after:bg-red-500 after:w-0 
+     after:h-[2px] after:bg-red-500 after:w-0 
      after:transition-all after:duration-300 
      hover:after:w-full
      ${isActive ? "after:w-full text-black" : ""}`;
@@ -29,7 +30,7 @@ function Navbar() {
           </div>
 
           <div
-            className={` md:flex md:translate-x-0 md:opacity-100 ${
+            className={` md:flex md:opacity-100 md:translate-x-0 md:pointer-events-auto ${
               menu === "flex"
                 ? "translate-x-0 opacity-100 pointer-events-auto"
                 : "translate-x-full opacity-0 pointer-events-none"
@@ -42,17 +43,17 @@ function Navbar() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/products" className={navLinkClasses}>
+                <NavLink to="/Products" className={navLinkClasses}>
                   Products
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/about" className={navLinkClasses}>
+                <NavLink to="/About" className={navLinkClasses}>
                   About
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/contact" className={navLinkClasses}>
+                <NavLink to="/Contact" className={navLinkClasses}>
                   Contact
                 </NavLink>
               </li>
@@ -62,7 +63,7 @@ function Navbar() {
                 </NavLink>
               </li>
               <li>
-                <button className="bg-red-500 text-white md:w-18.25 md:h-8 rounded cursor-pointer w-full h-9 text-[18px] ">
+                <button className="bg-red-500 text-white md:w-[73px] md:h-[32px] rounded cursor-pointer w-full h-9 text-[18px] ">
                   Sign in
                 </button>
               </li>
