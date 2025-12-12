@@ -63,7 +63,7 @@ function Navbar() {
                 </NavLink>
               </li>
               <li>
-                <button className="bg-red-500 text-white md:w-[73px] md:h-[32px] rounded cursor-pointer w-full h-9 text-[18px] ">
+                <button className="bg-red-500 text-white md:w-18.25 md:h-8 rounded cursor-pointer w-full h-9 text-[18px] ">
                   Sign in
                 </button>
               </li>
