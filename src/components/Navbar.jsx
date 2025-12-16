@@ -45,7 +45,7 @@ function Navbar() {
      ${isActive ? "after:w-full text-black" : ""}`;
   return (
     <>
-      <header className="shadow-lg sticky top-0 italic z-10 h-19 flex justify-center items-center">
+      <header className="overflow-hidden shadow-lg sticky top-0 italic z-10 h-19 flex justify-center items-center bg-white">
         <nav className="flex md:justify-around md:p-3 p-4 justify-between w-full">
           <div className="flex gap-5 text-lg items-center justify-center max-w-7xl">
             <Link
