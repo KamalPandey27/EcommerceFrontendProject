@@ -19,6 +19,7 @@ function Navbar() {
   };
 
   const [openDropDown, setDropDown] = useState(false);
+
   const [location, setLocation] = useState(null);
 
   const getLocation = async () => {
@@ -45,12 +46,12 @@ function Navbar() {
      ${isActive ? "after:w-full text-black" : ""}`;
   return (
     <>
-      <header className="overflow-hidden shadow-lg sticky top-0 italic z-10 h-19 flex justify-center items-center bg-white">
+      <header className=" shadow-lg sticky top-0 italic z-10 h-19 flex justify-center items-center bg-white">
         <nav className="flex md:justify-around md:p-3 p-4 justify-between w-full">
           <div className="flex gap-5 text-lg items-center justify-center max-w-7xl">
             <Link
               to="/"
-              className="font-bold text-3xl first-letter:text-red-500"
+              className="font-bold md:text-3xl text-2xl first-letter:text-red-500"
             >
               Zaptro
             </Link>
@@ -59,7 +60,7 @@ function Navbar() {
               onClick={() => setDropDown((prev) => !prev)}
             >
               <FaMapMarkerAlt size={20} color="red" />
-              <div className="text-lg select-none ">
+              <div className="md:text-lg select-none text-[14px] ">
                 {location ? (
                   <div className="-space-y-1 ">
                     <p>{location.city || location.town || location.village}</p>
@@ -76,9 +77,9 @@ function Navbar() {
                 }`}
               />
               {openDropDown ? (
-                <div className="w-50  h-30 absolute top-12 bg-gray-50 flex justify-center items-center rounded shadow-lg transition-all duration-300 ease-in-out">
+                <div className="md:w-50 w-35 h-20 md:h-30 z-10 absolute top-12 bg-gray-50 flex justify-center items-center rounded shadow-lg transition-all duration-300 ease-in-out">
                   <span
-                    className="bg-red-500 p-1 text-white  rounded cursor-pointer  text-[18px] "
+                    className="bg-red-500 p-1 text-white  rounded cursor-pointer  md:text-[18px] text-[14px]"
                     onClick={getLocation}
                   >
                     Detect my location
