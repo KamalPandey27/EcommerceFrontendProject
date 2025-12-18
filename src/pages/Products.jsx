@@ -5,8 +5,6 @@ import { DataContext } from "../context/DataContext.jsx";
 
 function Products() {
   const { data, fetchAllProducts } = useContext(DataContext);
-  const mapdata = data.map((e) => e.title);
-  console.log(mapdata);
   useEffect(() => {
     fetchAllProducts();
   }, [fetchAllProducts]);
