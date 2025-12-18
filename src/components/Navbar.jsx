@@ -38,20 +38,20 @@ function Navbar() {
   };
 
   const navLinkClasses = ({ isActive }) =>
-    `relative text-xl font-medium text-black 
+    `relative text-xl font-medium text-white
      after:content-[''] after:absolute after:left-0 after:-bottom-1
      after:h-[2px] after:bg-red-500 after:w-0 
      after:transition-all after:duration-300 
      hover:after:w-full
-     ${isActive ? "after:w-full text-black" : ""}`;
+     ${isActive ? "after:w-full text-white" : ""}`;
   return (
     <>
-      <header className=" shadow-lg sticky top-0 italic z-10 h-19 flex justify-center items-center bg-white">
+      <header className=" shadow-lg sticky top-0 italic z-100 h-19 flex justify-center items-center bg-linear-to-r from-[#13103a] via-[#35306f] to-[#29294a] text-white">
         <nav className="flex md:justify-around md:p-3 p-4 justify-between w-full">
           <div className="flex gap-5 text-lg items-center justify-center max-w-7xl">
             <Link
               to="/"
-              className="font-bold md:text-3xl text-2xl first-letter:text-red-500"
+              className="font-bold md:text-3xl text-2xl first-letter-gradient "
             >
               Zaptro
             </Link>
@@ -59,7 +59,7 @@ function Navbar() {
               className="flex gap-2 justify-center items-center relative cursor-pointer "
               onClick={() => setDropDown((prev) => !prev)}
             >
-              <FaMapMarkerAlt size={20} color="red" />
+              <FaMapMarkerAlt size={20} color="violet" />
               <div className="md:text-lg select-none text-[14px] ">
                 {location ? (
                   <div className="-space-y-1 ">
@@ -72,14 +72,15 @@ function Navbar() {
               </div>
               <FaCaretDown
                 size={20}
+                color="violet"
                 className={`transition-transform ${
                   openDropDown ? "rotate-180" : ""
                 }`}
               />
               {openDropDown ? (
-                <div className="md:w-50 w-35 h-20 md:h-30 z-10 absolute top-12 bg-gray-50 flex justify-center items-center rounded shadow-lg transition-all duration-300 ease-in-out">
+                <div className="md:w-50 w-35 h-20 md:h-30 z-10 absolute top-12 bg-linear-to-r from-[#13103a] via-[#35306f] to-[#29294a] text-white flex justify-center items-center rounded shadow-lg transition-all duration-300 ease-in-out">
                   <span
-                    className="bg-red-500 p-1 text-white  rounded cursor-pointer  md:text-[18px] text-[14px]"
+                    className="bg-linear-to-r from-red-500 to-purple-500 text-white p-1 rounded cursor-pointer  md:text-[18px] text-[14px]"
                     onClick={getLocation}
                   >
                     Detect my location
@@ -96,7 +97,7 @@ function Navbar() {
               menu
                 ? "translate-x-0 opacity-100 pointer-events-auto"
                 : "translate-x-full opacity-0 pointer-events-none"
-            } md:items-center md:justify-center md:static md:h-auto md:w-auto absolute right-0 top-0 h-screen bg-white w-[50vw] transition-all duration-300 ease-in-out  `}
+            } md:items-center md:justify-center md:static md:h-auto md:w-auto absolute right-0 top-0 h-screen  w-[50vw] transition-all duration-300 ease-in-out  `}
           >
             <ul className=" md:flex md:flex-row md:gap-5 flex flex-col gap-7 md:p-0 p-10 w-full md:justify-center md:items-center ">
               <li>

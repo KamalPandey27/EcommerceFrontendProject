@@ -6,3 +6,7 @@
   width: 3rem;
   height: 3rem;
 }
+
+.first-letter-gradient::first-letter {
+  @apply bg-linear-to-r from-red-500 to-purple-500 bg-clip-text text-transparent;
+}
