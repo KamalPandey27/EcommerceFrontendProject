@@ -10,3 +10,23 @@
 .first-letter-gradient::first-letter {
   @apply bg-linear-to-r from-red-500 to-purple-500 bg-clip-text text-transparent;
 }
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #13103a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ef4444, #a855f7);
+  border-radius: 10px;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a855f7 #13103a;
+}

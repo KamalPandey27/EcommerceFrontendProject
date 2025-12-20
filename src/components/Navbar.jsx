@@ -97,7 +97,7 @@ function Navbar() {
               menu
                 ? "translate-x-0 opacity-100 pointer-events-auto"
                 : "translate-x-full opacity-0 pointer-events-none"
-            } md:items-center md:justify-center md:static md:h-auto md:w-auto absolute right-0 top-0 h-screen  w-[50vw] transition-all duration-300 ease-in-out  `}
+            } md:items-center md:justify-center md:static md:h-auto md:w-auto absolute right-0 top-0 h-screen  w-[50vw] transition-all duration-300 ease-in-out  text-white `}
           >
             <ul className=" md:flex md:flex-row md:gap-5 flex flex-col gap-7 md:p-0 p-10 w-full md:justify-center md:items-center ">
               <li>
