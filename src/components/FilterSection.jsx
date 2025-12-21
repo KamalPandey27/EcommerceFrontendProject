@@ -28,7 +28,7 @@ function FilterSection() {
         </button>
       </div>
       <div
-        className={`flex justify-center w-[20vw] cursor-pointer bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] md:h-screen h-[97vh] rounded text-white md:py-3 px-2 py-1 md:sticky md:top-0 absolute left-3 md:translate-x-0 md:opacity-100 transition-all duration-500 ease-in-out ${
+        className={`flex justify-center sm:w-[20vw] cursor-pointer bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] md:h-screen h-[97vh] rounded text-white md:py-3 px-2 py-1 md:sticky md:top-0 absolute left-3 md:translate-x-0 md:opacity-100 transition-all duration-500 ease-in-out ${
           filter ? "translate-x-0 opacity-100" : "-translate-x-[200%] opacity-0"
         }`}
       >
