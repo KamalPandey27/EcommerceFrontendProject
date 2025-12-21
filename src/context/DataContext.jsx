@@ -6,7 +6,7 @@ export const DataContext = createContext(null);
 
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
-
+  const [productCategoryData, setProductCategoryData] = useState("");
   // Fetching all products
   const fetchAllProducts = useCallback(async () => {
     try {
@@ -18,7 +18,15 @@ export const DataProvider = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ data, setData, fetchAllProducts }}>
+    <DataContext.Provider
+      value={{
+        data,
+        setData,
+        fetchAllProducts,
+        productCategoryData,
+        setProductCategoryData,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );

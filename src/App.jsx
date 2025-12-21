@@ -1,6 +1,13 @@
 import React from "react";
 import Layout from "./Layout.jsx";
-import { Home, About, Contact, Cart, Products } from "./pages/Index.jsx";
+import {
+  Home,
+  About,
+  Contact,
+  Cart,
+  Products,
+  CategoryProductData,
+} from "./pages/Index.jsx";
 import {
   RouterProvider,
   createRoutesFromElements,
@@ -17,6 +24,7 @@ function App() {
         <Route path="contact" element={<Contact />} />
         <Route path="products" element={<Products />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="category" element={<CategoryProductData />} />
       </Route>
     )
   );

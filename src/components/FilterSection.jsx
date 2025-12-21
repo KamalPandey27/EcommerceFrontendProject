@@ -9,10 +9,10 @@ function FilterSection({ onApplyFilter }) {
   }, [fetchAllProducts]);
   const category = [...new Set(data.map((e) => e.category))];
   const brand = [...new Set(data.map((e) => e.brand))];
-  const [filter, setFilter] = useState(false);
+  const [showFilter, setShowFilter] = useState(false);
   const [categoryData, setCategoryData] = useState([]);
   const [brandData, setBrandData] = useState("");
-  const [priceRange, setPriceRange] = useState(0);
+  const [priceRange, setPriceRange] = useState(5000);
 
   const handleCategoryChange = (item, checked) => {
     setCategoryData((prev) =>
@@ -27,14 +27,14 @@ function FilterSection({ onApplyFilter }) {
       brandData,
       priceRange,
     });
-    setFilter(false);
+    setShowFilter(false);
   };
   return (
     <>
       <div className="md:hidden flex justify-around p-2 ">
         <button
           className="bg-linear-to-r from-red-500 to-purple-500 text-white   rounded cursor-pointer  h-9  text-[18px]  p-2 flex justify-center items-center w-30"
-          onClick={() => setFilter((prev) => !prev)}
+          onClick={() => setShowFilter((prev) => !prev)}
         >
           Filter
         </button>
@@ -44,7 +44,9 @@ function FilterSection({ onApplyFilter }) {
       </div>
       <div
         className={`flex justify-center sm:w-[20vw] cursor-pointer bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] md:h-screen h-[97vh] rounded text-white md:py-3 px-2 py-1 md:sticky md:top-0 absolute left-3 md:translate-x-0 md:opacity-100 transition-all duration-500 ease-in-out ${
-          filter ? "translate-x-0 opacity-100" : "-translate-x-[200%] opacity-0"
+          showFilter
+            ? "translate-x-0 opacity-100"
+            : "-translate-x-[200%] opacity-0"
         }`}
       >
         <form
@@ -112,7 +114,7 @@ function FilterSection({ onApplyFilter }) {
             <span className="lg:text-xl md:text-lg text-[16px]">
               Price Range
             </span>
-            <p className="text-[14px]">Price Range: $5 - $5000</p>
+            <p className="text-[14px]">Price Range: $5 - ${priceRange}</p>
             <input
               type="range"
               name=""
@@ -140,7 +142,7 @@ function FilterSection({ onApplyFilter }) {
               value="submit"
               type="submit"
               className="bg-linear-to-r from-red-500 to-purple-500 text-white rounded cursor-pointer  md:text-lg md:text-[16px] text-[15px] py-1 flex justify-center items-center w-full "
-              onClick={() => setFilter((prev) => !prev)}
+              onClick={() => setShowFilter((prev) => !prev)}
             >
               Apply
             </button>
