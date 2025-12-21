@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import FilterSection from "../components/FilterSection.jsx";
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext.jsx";
 
 function Products() {
   const { data, fetchAllProducts } = useContext(DataContext);
-
+  const [filter, setFilter] = useState({});
+  console.log(filter);
   useEffect(() => {
     fetchAllProducts();
   }, [fetchAllProducts]);
   return (
     <>
       <div className="flex justify-around gap-5 md:flex-row flex-col lg:p-5 p-3 h-screen overflow-hidden">
-        <FilterSection />
+        <FilterSection onApplyFilter={setFilter} />
         <div className="grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-2 justify-items-center  lg:gap-5 md:gap-4 gap-3 overflow-y-scroll lg:p-5 sm:p-3 p-3">
           {data?.map((e, index) => {
             return (

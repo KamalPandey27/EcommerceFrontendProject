@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DataContext } from "../context/DataContext";
 
-function FilterSection() {
-  const [priceRange, setPriceRange] = useState(0);
+function FilterSection({ onApplyFilter }) {
   const { data, fetchAllProducts } = useContext(DataContext);
 
   useEffect(() => {
@@ -11,8 +10,24 @@ function FilterSection() {
   const category = [...new Set(data.map((e) => e.category))];
   const brand = [...new Set(data.map((e) => e.brand))];
   const [filter, setFilter] = useState(false);
+  const [categoryData, setCategoryData] = useState([]);
+  const [brandData, setBrandData] = useState("");
+  const [priceRange, setPriceRange] = useState(0);
+
+  const handleCategoryChange = (item, checked) => {
+    setCategoryData((prev) =>
+      checked ? [...prev, item] : prev.filter((i) => i !== item)
+    );
+  };
+
   const DataSubmit = (e) => {
     e.preventDefault();
+    onApplyFilter({
+      categoryData,
+      brandData,
+      priceRange,
+    });
+    setFilter(false);
   };
   return (
     <>
@@ -49,7 +64,14 @@ function FilterSection() {
             {category.map((item, index) => {
               return (
                 <div key={index} className="flex items-center gap-1">
-                  <input type="checkbox" id={item} />
+                  <input
+                    type="checkbox"
+                    id={item}
+                    value={item}
+                    onChange={(e) =>
+                      handleCategoryChange(item, e.target.checked)
+                    }
+                  />
                   <label
                     htmlFor={item}
                     className="select-none lg:text-[16px] md:text-[15px] text-[14px]"
@@ -63,8 +85,8 @@ function FilterSection() {
           <div className="flex flex-col lg:gap-2 gap-1  w-full justify-center">
             <span className="lg:text-xl md:text-lg text-[16px]">Brand</span>
             <select
-              name=""
-              id=""
+              value={brandData}
+              onChange={(e) => setBrandData(e.target.value)}
               className="  bg-linear-to-r from-[#13103a] via-[#35306f] to-[#29294a] rounded p-1 outline-0 w-full "
             >
               <option
@@ -106,7 +128,11 @@ function FilterSection() {
               value="reset"
               type="reset"
               className="bg-linear-to-r from-red-500 to-purple-500 text-white rounded cursor-pointer  md:text-lg md:text-[16px] text-[15px] py-1 flex justify-center items-center w-full "
-              onClick={() => setPriceRange(0)}
+              onClick={() => {
+                setCategoryData([]);
+                setBrandData("");
+                setPriceRange(5000);
+              }}
             >
               Reset
             </button>
