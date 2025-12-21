@@ -3,7 +3,7 @@ import ProductCard from "../components/ProductCard.jsx";
 import { DataContext } from "../context/DataContext.jsx";
 function CategoryProductData() {
   let { data, fetchAllProducts, productCategoryData } = useContext(DataContext);
-  console.log(productCategoryData);
+
   useEffect(() => {
     fetchAllProducts();
   }, [fetchAllProducts]);

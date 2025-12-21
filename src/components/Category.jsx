@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext.jsx";
-import CategoryProductData from "../pages/CategoryProductData.jsx";
+
 function Category() {
   let { data, fetchAllProducts, setProductCategoryData } =
     useContext(DataContext);
