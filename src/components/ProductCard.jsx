@@ -1,23 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../context/DataContext";
+import { NavLink } from "react-router-dom";
 
 function ProductCard({ products }) {
+  const { addToCartData, setAddToCart } = useContext(DataContext);
+
+  const handleAddToCart = () => {
+    setAddToCart((prev) => [...prev, { ...products, quantity: 1 }]);
+  };
+
+  const isInCart = addToCartData.some((item) => item.id === products.id);
+
   return (
-    <>
-      <div className="flex flex-col lg:gap-2 gap-1 justify-between items-center lg:w-55 sm:w-full w-[80%] lg:h-80 sm:h-75 h-60  text-white sm:py-2 sm:px-4 py-1 px-2 shadow-2xl rounded cursor-pointer hover:scale-110 transition-all duration-300 ease-in-out bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e] ">
-        <img
-          src={products.thumbnail}
-          alt=""
-          className="sm:w-45 w-35 shadow-lg shadow-red-400 rounded-full"
-        />
-        <span className="sm:text-[14px] text-[12px] line-clamp-2 text-center">
-          {products.title}
-        </span>
-        <span>$ {products.price}</span>
-        <button className="w-full bg-linear-to-r from-red-500 to-purple-500 text-white   rounded cursor-pointer  lg:h-9 h-6 lg:text-[17px] text-[15px] p-2 flex justify-center items-center">
+    <div className="flex flex-col justify-between gap-2 items-center w-[80%] p-3 text-white shadow-xl rounded bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]">
+      <img
+        src={products.thumbnail}
+        alt={products.title}
+        className="w-36 rounded-full"
+      />
+
+      <span className="text-center line-clamp-2">{products.title}</span>
+
+      <span>$ {products.price}</span>
+
+      {!isInCart ? (
+        <button
+          onClick={handleAddToCart}
+          className="w-full bg-red-500 text-white rounded py-2"
+        >
           Add to Cart
         </button>
-      </div>
-    </>
+      ) : (
+        <NavLink
+          to="/cart"
+          className="w-full bg-purple-500 text-white rounded py-2 text-center"
+        >
+          Go to Cart
+        </NavLink>
+      )}
+    </div>
   );
 }
 

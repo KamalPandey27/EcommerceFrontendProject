@@ -7,10 +7,12 @@ export const DataContext = createContext(null);
 export const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [productCategoryData, setProductCategoryData] = useState("");
+  const [addToCartData, setAddToCart] = useState([]);
+
   // Fetching all products
   const fetchAllProducts = useCallback(async () => {
     try {
-      const res = await axios.get("https://dummyjson.com/products?limit=100");
+      const res = await axios.get("https://dummyjson.com/products?limit=200");
       setData(res.data.products);
     } catch (error) {
       console.error(error);
@@ -25,6 +27,8 @@ export const DataProvider = ({ children }) => {
         fetchAllProducts,
         productCategoryData,
         setProductCategoryData,
+        setAddToCart,
+        addToCartData,
       }}
     >
       {children}

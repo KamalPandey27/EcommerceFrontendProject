@@ -107,7 +107,7 @@ function Navbar() {
               </li>
               <li>
                 <NavLink
-                  to="/Products"
+                  to="/products"
                   className={navLinkClasses}
                   onClick={closeMenu}
                 >
@@ -116,7 +116,7 @@ function Navbar() {
               </li>
               <li>
                 <NavLink
-                  to="/About"
+                  to="/about"
                   className={navLinkClasses}
                   onClick={closeMenu}
                 >
@@ -125,7 +125,7 @@ function Navbar() {
               </li>
               <li>
                 <NavLink
-                  to="/Contact"
+                  to="/contact"
                   className={navLinkClasses}
                   onClick={closeMenu}
                 >
@@ -134,7 +134,7 @@ function Navbar() {
               </li>
               <li className="">
                 <NavLink
-                  to="/Cart"
+                  to="/cart"
                   className="cursor-pointer relative"
                   onClick={closeMenu}
                 >
