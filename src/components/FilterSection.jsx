@@ -63,7 +63,7 @@ function FilterSection({ onApplyFilter }) {
           </div>
           <div className="flex flex-col lg:gap-2 gap-1">
             <span className="lg:text-xl md:text-lg text-[16px]">Category</span>
-            {category.map((item, index) => {
+            {category.slice(0, 10).map((item, index) => {
               return (
                 <div key={index} className="flex items-center gap-1">
                   <input

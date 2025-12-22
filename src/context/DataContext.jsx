@@ -8,7 +8,6 @@ export const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
   const [productCategoryData, setProductCategoryData] = useState("");
   const [addToCartData, setAddToCart] = useState([]);
-
   // Fetching all products
   const fetchAllProducts = useCallback(async () => {
     try {
@@ -29,6 +28,7 @@ export const DataProvider = ({ children }) => {
         setProductCategoryData,
         setAddToCart,
         addToCartData,
+    
       }}
     >
       {children}

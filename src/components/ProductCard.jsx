@@ -12,11 +12,11 @@ function ProductCard({ products }) {
   const isInCart = addToCartData.some((item) => item.id === products.id);
 
   return (
-    <div className="flex flex-col justify-between gap-2 items-center w-[80%] p-3 text-white shadow-xl rounded bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]">
+    <div className="flex flex-col justify-between gap-2 items-center w-full h-full  p-3 text-white shadow-xl rounded bg-linear-to-r from-[#0f0c29] via-[#302b63] to-[#24243e]">
       <img
         src={products.thumbnail}
         alt={products.title}
-        className="w-36 rounded-full"
+        className=" rounded-full"
       />
 
       <span className="text-center line-clamp-2">{products.title}</span>

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaShoppingCart, FaMapMarkerAlt, FaCaretDown } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";
 import { NavLink, Link } from "react-router-dom";
+import { useContext } from "react";
+import { DataContext } from "../context/DataContext";
 import {
   SignedIn,
   SignedOut,
@@ -10,6 +12,10 @@ import {
 } from "@clerk/clerk-react";
 import axios from "axios";
 function Navbar() {
+  const { addToCartData } = useContext(DataContext);
+  const cartQuantity = addToCartData.reduce((acc, item) => {
+    return acc + item.quantity;
+  }, 0);
   const [menu, setMenu] = useState(false);
   const closeMenu = () => {
     setMenu(false);
@@ -140,7 +146,7 @@ function Navbar() {
                 >
                   <FaShoppingCart size={30} />
                   <span className=" absolute -top-2 md:-right-3 left-5 flex items-center justify-center w-5 h-5 bg-red-500 text-white rounded-full text-xs">
-                    0
+                    {cartQuantity}
                   </span>
                 </NavLink>
               </li>
