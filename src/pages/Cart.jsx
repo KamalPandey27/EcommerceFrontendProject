@@ -21,13 +21,15 @@ function Cart() {
         .filter((item) => item.quantity > 0)
     );
   };
-
+  const priceOfAllProduct = addToCartData.reduce((acc, item) => {
+    return acc + item.price;
+  }, 0);
   if (addToCartData.length === 0) {
     return <h2 className="text-center text-white">Cart is empty</h2>;
   }
 
   return (
-    <div className="flex flex-col gap-5 p-5">
+    <div className="flex flex-col justify-center  gap-5 p-5">
       {addToCartData.map((item) => (
         <div
           key={item.id}
@@ -64,6 +66,12 @@ function Cart() {
           </div>
         </div>
       ))}
+      <div className=" p-4 rounded shadow-xl text-white bg-linear-to-r from-[#13103a] via-[#35306f] to-[#29294a]">
+        Total Price : {priceOfAllProduct.toFixed(2)}
+      </div>
+      <div className=" text-center p-4 rounded shadow-xl w-[10%] bg-linear-to-r from-red-500 to-purple-500 text-white">
+        Place Order
+      </div>
     </div>
   );
 }
